@@ -1,9 +1,7 @@
-import * as common from "./common/commonFunctions"
-const { NewComputerActions } = require('../actions/newComputerActions');
-const addComputerAction = new NewComputerActions();
-
-
-var computerName
+const { NewComputerActions } = require('../actions/newComputerActions')
+const { CommomActions } = require('../actions/commomActions')
+const addComputerAction = new NewComputerActions()
+const commomActions = new CommomActions()
 
 When(/^the Add a new computer button is clicked$/, () => {
     addComputerAction.clickAddComputer();
@@ -11,9 +9,9 @@ When(/^the Add a new computer button is clicked$/, () => {
 
 When(/^input the computer specifications and click on the Create this Computer button$/, () => {
     addComputerAction.inputComputerName();
-    addComputerAction.inputIntroduceDate();
-    addComputerAction.inputDicontinuedDate();
-    addComputerAction.selectCompany();
+    commomActions.inputIntroduceDate();
+    commomActions.inputDicontinuedDate();
+    commomActions.selectCompany();
     addComputerAction.clickCreateComputer()
 });
 

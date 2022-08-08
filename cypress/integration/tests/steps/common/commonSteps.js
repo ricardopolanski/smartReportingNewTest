@@ -1,22 +1,12 @@
-// Then(/^will be showed up four fields to edit$/, () => {
-//     cy.get('[id="name"]').as('computerName').should('be.visible')
-//     cy.get('[id="introduced"]').as('introduced').should('be.visible')
-//     cy.get('[id="discontinued"]').as('discontinued').should('be.visible')
-//     cy.get('[id="company"]').as('company').should('be.visible')
-//     cy.get('[class="btn primary"]').as('createComputer').should('be.visible')
-// });
+const { CommomActions } = require('../../actions/commomActions')
+const commomActions = new CommomActions
 
 Given(/^the website is accessed$/, () => {
-    cy.visit('/computers', {timeout: 10000});
-    cy.request('/computers').then((response) => {
-        expect(response.status).equal(200)
-    })
-    cy.viewport('macbook-13')
+    commomActions.accessWebSite()
 });
 
 And(/^type into Search Field the Computer name$/, () => {
-    cy.get('[id="searchbox"]').as('searchBox')
-    cy.get('@searchBox').should('be.visible').and('be.empty').type('ACE')
+    commomActions.searchBox();
 });
 
 // When(/^click on the computer name$/, () => {
@@ -24,7 +14,14 @@ And(/^type into Search Field the Computer name$/, () => {
 // });
 
 When(/^click on the button "Filter by name"$/, () => {
-    cy.get('[id="searchsubmit"]').as('searchButton')
-    cy.get('@searchButton').should('be.visible').and('be.empty').click()
+    commomActions.searchBtn()
+});
+
+Then(/^will be listed computers that match$/, () => {
+    commomActions.checkResults();
+});
+
+Then(/^will be showed up four fields to edit$/, () => {
+    commomActions.checkFields();
 });
 
