@@ -5,7 +5,7 @@ Feature: Delete Computer after filter
 
     Scenario: Delete Computers
         Given the website is accessed
-        And type into Search Field the Computer name to be deleted
+        And type into Search Field the Computer name
         When click on the button "Filter by name"
         Then will be listed computers that match
         When click on the computer name to be deleted
