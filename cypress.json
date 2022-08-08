@@ -1,0 +1,9 @@
+{
+    "testFiles": "**/*.feature",
+    "baseUrl": "https://computer-database.gatling.io",
+    "retries": {
+        "runMode": 1,
+        "openMode": 0
+      },
+      "projectId": "r9qbn1"
+}
