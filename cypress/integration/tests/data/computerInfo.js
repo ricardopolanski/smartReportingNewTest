@@ -1,23 +1,13 @@
-function setIntroduceDate() {
-    const date = require("dayjs")
-    var introducedDate = date().format("YYYY-MM-DD")
-    return introducedDate
-}
-
-function setDiscontinuedDate() {
-    const date = require("dayjs")
-    var discontinuedDate = date().add('10', 'years').format("YYYY-MM-DD")
-    return discontinuedDate
-}
+const { DateFunction } = require('../data/dateFunctions')
+const dateFunction = new DateFunction
 
 exports.ComputerData = class ComputerData {
     constructor(){
         this.newComputerName = 'New computer Smart Reporting';
         this.selectComputerDelete = 'Acer Extensa 5220';
+        this.editComputerName = 'Acer Extensa 5220'
         this.companyName = 'Thinking Machines'
-        this.introduceDate = setIntroduceDate()
-        this.discontunedDate = setDiscontinuedDate()
-        this.computerCreatedMsg = `Done !  Computer ${this.computerName} has been created`
+        this.computerCreatedMsg = `Done !  Computer ${this.newComputerName} has been created`
     }
 
     getComputerName = () => {
@@ -47,4 +37,8 @@ exports.ComputerData = class ComputerData {
     selectDelComputer = () => {
         return this.selectComputerDelete;
     }    
+
+    editComputer = () => {
+        return this.editComputerName
+    }
 }
