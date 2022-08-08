@@ -1,15 +1,17 @@
 const { ComputerData } = require('../data/computerInfo')
 const { NewComputerElements } = require('../pageObjects/newComputerElements')
 const { CommomElements } = require('../pageObjects/commomElements')
+const { DateFunction } = require('../data/dateFunctions')
 const computerData = new ComputerData
 const newComputerElements = new NewComputerElements
 const commomElements = new CommomElements
+const dateFunction = new DateFunction
 
 
 exports.NewComputerActions = class NewComputerActions {
     constructor(){
-        this.introduceDate = computerData.getIntroduceDate()
-        this.discontinuedDate = computerData.getDiscontinuedDate()
+        this.introduceDate = dateFunction.getIntroduceDate()
+        this.discontinuedDate = dateFunction.getDiscontinuedDate()
         this.computerName = computerData.getComputerName()
         this.companyName = computerData.getCompany();
         this.confirmationMessage = commomElements.confirmationMessage()
@@ -32,26 +34,7 @@ exports.NewComputerActions = class NewComputerActions {
     }
 
     inputComputerName = () => {
-        cy.get(newComputerElements.computerfield()).type(this.computerName).should('have.value', this.computerName)
-    }
-
-    inputIntroduceDate = () => {
-        cy.get('@introduced').type(this.introduceDate, {
-            delay: 50
-        }).should('have.value', this.introduceDate)
-    }
-
-    inputDicontinuedDate = () => {
-        cy.get('@discontinued').type(this.discontinuedDate, {
-            delay: 50
-        }).should('have.value', this.discontinuedDate)
-    }
-
-    selectCompany = () => {
-        cy.get('@company').select(this.companyName)
-            .find('option:selected')
-            .should('have.text', this.companyName)
-            .and('have.value', 2)
+        cy.get('@computerName').type(this.computerName).should('have.value', this.computerName)
     }
 
     clickCreateComputer = () => {

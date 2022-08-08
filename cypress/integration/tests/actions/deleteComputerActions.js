@@ -19,7 +19,7 @@ exports.DeleteComputerActions = class DeleteComputerActions {
     }
     
     checkResults = () => {
-        cy.get(deleteElements.result()).invoke('text').then((text) => {
+        cy.get(commomElements.result()).invoke('text').then((text) => {
         cy.expect(text).to.equal('6 computers found')
     })
     }
@@ -34,15 +34,5 @@ exports.DeleteComputerActions = class DeleteComputerActions {
             .and('eq', 'rgb(238, 220, 148)')
     }
 }
-
-    
-
-    // selectComputer = () => {
-    //     // common.confirmationMsg()
-    //     // cy.get('@confirmationMsg').and('have.text', `Done !  Computer Acer Extensa 5220 has been deleted`)
-    //     //     .and('have.css', 'background-color')
-    //     //     .and('eq', 'rgb(238, 220, 148)')
-    // }
-           
 
 
