@@ -1,10 +1,10 @@
 exports.NewComputerElements = class NewComputerElements {
     constructor(){
         this.addComputerBtn = '#add';
-        this.newComputerField = '[id="name"]';
-        this.introcuced = '[id="introduced"]';
-        this.dicontinued = '[id="discontinued"]';
-        this.companyDropDown = '[id="company"]';
+        //this.newComputerField = '[id="name"]';
+        //this.introcuced = '[id="introduced"]';
+        //this.dicontinued = '[id="discontinued"]';
+        //this.companyDropDown = '[id="company"]';
         this.createComputerBtn = '[class="btn primary"]';
     }
 
@@ -12,21 +12,21 @@ exports.NewComputerElements = class NewComputerElements {
         return this.addComputerBtn
     }
     
-    computerfield = () => {
-        return this.newComputerField
-    }
+    // computerfield = () => {
+    //     return this.newComputerField
+    // }
     
-    introcucedField = () => {
-        return this.introcuced
-    }
+    // introcucedField = () => {
+    //     return this.introcuced
+    // }
     
-    dicontinuedField = () => {
-        return this.dicontinued
-    }
+    // dicontinuedField = () => {
+    //     return this.dicontinued
+    // }
     
-    companySelect = () => {
-        return this.companyDropDown
-    }
+    // companySelect = () => {
+    //     return this.companyDropDown
+    // }
     
     createBtn = () => {
         return this.createComputerBtn
