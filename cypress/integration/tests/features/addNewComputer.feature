@@ -9,4 +9,3 @@ Feature: Add a new computer
         Then will be showed up four fields to edit
         When input the computer specifications and click on the Create this Computer button
         Then a confirmation message will be displayed
-        

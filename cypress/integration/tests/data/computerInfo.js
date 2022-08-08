@@ -1,13 +1,19 @@
-const { DateFunction } = require('../data/dateFunctions')
-const dateFunction = new DateFunction
+// const { DateFunction } = require('../data/dateFunctions')
+// const dateFunction = new DateFunction
 
 exports.ComputerData = class ComputerData {
     constructor(){
-        this.newComputerName = 'New computer Smart Reporting';
-        this.selectComputerDelete = 'Acer Extensa 5220';
+        this.filterComputerName = 'Ace';
+        this.newComputerName = 'New Computer Smart Reporting';
         this.editComputerName = 'Acer Extensa 5220'
+        this.selectComputerDelete = 'ASUS Eee PC 901';
+        this.computerToDelete = 'ASUS'
         this.companyName = 'Thinking Machines'
-        this.computerCreatedMsg = `Done !  Computer ${this.newComputerName} has been created`
+        //this.computerCreatedMsg = `Done !  Computer ${this.newComputerName} has been created`
+    }
+
+    getNameFilter = () => {
+        return this.filterComputerName
     }
 
     getComputerName = () => {
@@ -15,7 +21,7 @@ exports.ComputerData = class ComputerData {
     }
 
     getDelComputer = () => {
-        return this.deleteComputerName
+        return this.computerToDelete
     }
 
     getIntroduceDate = () => {
@@ -30,9 +36,9 @@ exports.ComputerData = class ComputerData {
         return this.companyName;
     }    
 
-    getConfirmationsMsg = () => {
-        return this.computerCreatedMsg;
-    }    
+    // getConfirmationsMsg = () => {
+    //     return this.computerCreatedMsg;
+    // }    
 
     selectDelComputer = () => {
         return this.selectComputerDelete;

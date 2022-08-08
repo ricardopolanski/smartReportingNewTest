@@ -11,5 +11,4 @@ Feature: Edit computer specifications
         When click on the computer name to be edited
         Then will be showed up four fields to edit
         When edit the computer and click on the Save this computer button
-        Then the message Done ! Computer ACE has been updated should be displayed
-        
+        Then a edit confirmation message will be displayed        

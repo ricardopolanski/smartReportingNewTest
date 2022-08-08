@@ -9,14 +9,6 @@ exports.CommomElements = class CommomElements{
         this.message = '[class="alert-message warning"]';
         this.searchButton = '[id="searchsubmit"]'
         this.listResult = '[id="main"] h1';
-
-        // this.addComputerBtn = '#add';
-        // //this.newComputerField = '[id="name"]';
-        // //this.introcuced = '[id="introduced"]';
-        // //this.dicontinued = '[id="discontinued"]';
-        // //this.companyDropDown = '[id="company"]';
-        // this.createComputerBtn = '[class="btn primary"]';
-        
     }
 
     computerNameField = () => {

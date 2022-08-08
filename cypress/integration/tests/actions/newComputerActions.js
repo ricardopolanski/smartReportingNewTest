@@ -10,12 +10,12 @@ const dateFunction = new DateFunction
 
 exports.NewComputerActions = class NewComputerActions {
     constructor(){
+        this.name = computerData.getComputerName();
         this.introduceDate = dateFunction.getIntroduceDate()
         this.discontinuedDate = dateFunction.getDiscontinuedDate()
         this.computerName = computerData.getComputerName()
         this.companyName = computerData.getCompany();
-        this.confirmationMessage = commomElements.confirmationMessage()
-        this.getConfirmationsMsg = computerData.getConfirmationsMsg()
+        //this.getConfirmationsMsg = computerData.getConfirmationsMsg()
     }
 
     clickAddComputer = () => {
@@ -34,7 +34,7 @@ exports.NewComputerActions = class NewComputerActions {
     }
 
     inputComputerName = () => {
-        cy.get('@computerName').type(this.computerName).should('have.value', this.computerName)
+        cy.get('@computerName').type(this.name).should('have.value', this.name)
     }
 
     clickCreateComputer = () => {
@@ -48,12 +48,5 @@ exports.NewComputerActions = class NewComputerActions {
                 timeout: 5000
             }).its('response.statusCode').should('equal', 303);
         }
-
-        checkMessage = () => {
-            cy.get(this.confirmationMessage).and('have.text', this.getConfirmationsMsg)
-            .and('have.css', 'background-color')
-            .and('eq', 'rgb(238, 220, 148)')
-        }
-        
-    }
+}
 

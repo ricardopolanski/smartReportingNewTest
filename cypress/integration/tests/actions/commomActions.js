@@ -10,7 +10,8 @@ exports.CommomActions = class CommomActions{
         this.deleleConfirmation = commomElements.confirmationMessage()
         this.introduceDate = dateFunction.getIntroduceDate()
         this.discontinuedDate = dateFunction.getDiscontinuedDate()
-        this.companyName = computerData.getCompany();
+        this.companyName = computerData.getCompany();        
+        this.confirmationMessage = commomElements.confirmationMessage()
     }
 
     accessWebSite = () => {
@@ -26,22 +27,32 @@ exports.CommomActions = class CommomActions{
         cy.get('@searchButton').should('be.visible').and('be.empty').click()
     }
 
-    searchBox = () => {
+    searchBox = (computerName) => {
         cy.get(commomElements.searchElement()).as('searchBox')
-        cy.get('@searchBox').should('be.visible').and('be.empty').type('ACE')
+        cy.get('@searchBox').should('be.visible').and('be.empty').type(computerName)
     }
 
-    checkMessage = () => {
-        cy.get(this.deleleConfirmation).and('have.text', `Done !  Computer Acer Extensa 5220 has been deleted`)
-            .and('have.css', 'background-color')
-            .and('eq', 'rgb(238, 220, 148)')
-    }
+    // checkMessage = () => {
+    //     cy.get(this.deleleConfirmation).and('have.text', `Done !  Computer Acer Extensa 5220 has been deleted`)
+    //         .and('have.css', 'background-color')
+    //         .and('eq', 'rgb(238, 220, 148)')
+    // }
     
 
-    checkResults = () => {
+    checkResults = (action) => {
         cy.get(commomElements.result()).invoke('text').then((text) => {
-            cy.expect(text).to.equal('6 computers found')
+            cy.expect(text).to.equal(`${resultNumber(action)} computers found`)
         })
+        function resultNumber(){
+            if(action == 'delete'){
+            return 4
+        }else if(action == 'filter'){
+            return 6
+        }else if(action == 'edit'){
+            cy.log('action')
+            return 6
+        }
+    }
     }
 
     inputIntroduceDate = () => {
@@ -70,4 +81,31 @@ exports.CommomActions = class CommomActions{
         cy.get(commomElements.companyField()).as('company').should('be.visible')
         //cy.get('[class="btn primary"]').as('createComputer').should('be.visible')
     }
+
+    selectComputer = (computerName) => {
+        cy.get(commomElements.selectComputer()).find('td').contains(computerName).click()
+    }
+
+    checkMessage = (param, name) => {
+        cy.get(this.confirmationMessage).and('have.text', swithMessage(param, name))
+        .and('have.css', 'background-color')
+        .and('eq', 'rgb(238, 220, 148)')
+
+        function swithMessage(){
+            if(param == true){
+                return `Done !  Computer ${name} has been created`
+            }else if(param == false){
+                return `Done !  Computer ${name} has been updated`
+            }else{
+                
+                cy.log('delete', name)
+                return `Done !  Computer ${name} has been deleted`
+            }
+            
+        }
+    }
+
+    // When(/^click on the computer name$/, () => {
+//     cy.get('[class="computers zebra-striped"]').find('td').contains("Acer Extensa 5220").click()
+// });
 }

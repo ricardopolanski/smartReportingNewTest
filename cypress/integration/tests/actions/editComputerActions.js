@@ -9,8 +9,8 @@ const dateFunction = new DateFunction
 
 exports.EditComputerActions = class EditComputerActions {
     constructor(){
-        this.deleleConfirmation = commomElements.confirmationMessage()
-        this.computerName = "New Computer Name"
+        //this.deleleConfirmation = commomElements.confirmationMessage()
+        this.computerName = computerData.editComputer();
     }
     
     selectComputer = () => {
@@ -54,12 +54,6 @@ exports.EditComputerActions = class EditComputerActions {
         cy.wait('@redirectConfirmation', {
             timeout: 5000
         }).its('response.statusCode').should('equal', 303);
-    }
-
-    checkMessage = () => {
-        cy.get(commomElements.confirmationMessage()).and('have.text', `Done !  Computer ${this.computerName} has been updated`)
-            .and('have.css', 'background-color')
-            .and('eq', 'rgb(238, 220, 148)')
     }
 }
 
