@@ -9,7 +9,6 @@ exports.ComputerData = class ComputerData {
         this.selectComputerDelete = 'ASUS Eee PC 901';
         this.computerToDelete = 'ASUS'
         this.companyName = 'Thinking Machines'
-        //this.computerCreatedMsg = `Done !  Computer ${this.newComputerName} has been created`
     }
 
     getNameFilter = () => {

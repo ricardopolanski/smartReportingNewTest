@@ -1,9 +1,11 @@
 const { ComputerData } = require('../data/computerInfo')
 const { CommomElements } = require('../pageObjects/commomElements')
 const { DateFunction } = require('../data/dateFunctions')
+const { ResultMessages } = require('../data/messages')
 const computerData = new ComputerData
 const commomElements = new CommomElements
 const dateFunction = new DateFunction
+
 
 exports.CommomActions = class CommomActions{
     constructor(){
@@ -32,27 +34,12 @@ exports.CommomActions = class CommomActions{
         cy.get('@searchBox').should('be.visible').and('be.empty').type(computerName)
     }
 
-    // checkMessage = () => {
-    //     cy.get(this.deleleConfirmation).and('have.text', `Done !  Computer Acer Extensa 5220 has been deleted`)
-    //         .and('have.css', 'background-color')
-    //         .and('eq', 'rgb(238, 220, 148)')
-    // }
-    
-
     checkResults = (action) => {
+        const resultMessages = new ResultMessages(action)
+        const resultMsg = resultMessages.resultNumber()
         cy.get(commomElements.result()).invoke('text').then((text) => {
-            cy.expect(text).to.equal(`${resultNumber(action)} computers found`)
+            cy.expect(text).to.equal(resultMsg)
         })
-        function resultNumber(){
-            if(action == 'delete'){
-            return 4
-        }else if(action == 'filter'){
-            return 6
-        }else if(action == 'edit'){
-            cy.log('action')
-            return 6
-        }
-    }
     }
 
     inputIntroduceDate = () => {
@@ -79,7 +66,6 @@ exports.CommomActions = class CommomActions{
         cy.get(commomElements.introducedField()).as('introduced').should('be.visible')
         cy.get(commomElements.discontinuedField()).as('discontinued').should('be.visible')
         cy.get(commomElements.companyField()).as('company').should('be.visible')
-        //cy.get('[class="btn primary"]').as('createComputer').should('be.visible')
     }
 
     selectComputer = (computerName) => {
@@ -87,25 +73,11 @@ exports.CommomActions = class CommomActions{
     }
 
     checkMessage = (param, name) => {
-        cy.get(this.confirmationMessage).and('have.text', swithMessage(param, name))
+        cy.log(param)
+        const resultMessages = new ResultMessages(null, name, param)
+        const msg = resultMessages.swithMessage()
+        cy.get(this.confirmationMessage).and('have.text', msg)
         .and('have.css', 'background-color')
         .and('eq', 'rgb(238, 220, 148)')
-
-        function swithMessage(){
-            if(param == true){
-                return `Done !  Computer ${name} has been created`
-            }else if(param == false){
-                return `Done !  Computer ${name} has been updated`
-            }else{
-                
-                cy.log('delete', name)
-                return `Done !  Computer ${name} has been deleted`
-            }
-            
-        }
     }
-
-    // When(/^click on the computer name$/, () => {
-//     cy.get('[class="computers zebra-striped"]').find('td').contains("Acer Extensa 5220").click()
-// });
 }
