@@ -1,15 +1,15 @@
-const { CommomActions } = require('../../actions/commomActions')
-const commomActions = new CommomActions
+const { CommonActions } = require('../../actions/commonActions')
+const commonActions = new CommonActions
 
 Given(/^the website is accessed$/, () => {
-    commomActions.accessWebSite()
+    commonActions.accessWebSite()
 });
 
 When(/^click on the button "Filter by name"$/, () => {
-    commomActions.searchBtn()
+    commonActions.searchBtn()
 });
 
 Then(/^will be showed up four fields to edit$/, () => {
-    commomActions.checkFields();
+    commonActions.checkFields();
 });
 

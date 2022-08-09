@@ -1,4 +1,4 @@
-exports.CommomElements = class CommomElements{
+exports.CommonElements = class CommonElements{
     constructor(){
         this.computerField = '[id="name"]';
         this.introduced = '[id="introduced"]'
@@ -46,6 +46,5 @@ exports.CommomElements = class CommomElements{
     searchBtn = () => {
         return this.searchButton
     }
-    
 }
 

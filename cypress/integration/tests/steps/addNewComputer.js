@@ -1,8 +1,8 @@
 const { NewComputerActions } = require('../actions/newComputerActions')
-const { CommomActions } = require('../actions/commomActions')
+const { CommonActions } = require('../actions/commonActions')
 const { ComputerData } = require('../data/computerInfo')
 const addComputerAction = new NewComputerActions()
-const commomActions = new CommomActions()
+const commonActions = new CommonActions()
 const computerData = new ComputerData()
 
 const computerName = computerData.getComputerName();
@@ -15,12 +15,12 @@ When(/^the Add a new computer button is clicked$/, () => {
 When(/^input the computer specifications and click on the Create this Computer button$/, () => {
     const addComputerAction = new NewComputerActions(computerName)
     addComputerAction.inputComputerName();
-    commomActions.inputIntroduceDate();
-    commomActions.inputDicontinuedDate();
-    commomActions.selectCompany();
+    commonActions.inputIntroduceDate();
+    commonActions.inputDicontinuedDate();
+    commonActions.selectCompany();
     addComputerAction.clickCreateComputer()
 });
 
 Then(/^a confirmation message will be displayed$/, () => {
-    commomActions.checkMessage(newComputer, computerName)
+    commonActions.checkMessage(newComputer, computerName)
 });
