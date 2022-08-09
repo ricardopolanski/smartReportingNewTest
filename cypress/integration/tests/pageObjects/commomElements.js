@@ -46,6 +46,5 @@ exports.CommomElements = class CommomElements{
     searchBtn = () => {
         return this.searchButton
     }
-    
 }
 

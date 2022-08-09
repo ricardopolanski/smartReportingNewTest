@@ -9,11 +9,18 @@ const dateFunction = new DateFunction
 
 exports.CommomActions = class CommomActions{
     constructor(){
-        this.deleleConfirmation = commomElements.confirmationMessage()
         this.introduceDate = dateFunction.getIntroduceDate()
         this.discontinuedDate = dateFunction.getDiscontinuedDate()
+        this.introducedField = commomElements.introducedField();
+        this.discontinuedField = commomElements.discontinuedField();
         this.companyName = computerData.getCompany();        
         this.confirmationMessage = commomElements.confirmationMessage()
+        this.searchButton = commomElements.searchBtn();
+        this.searchField = commomElements.searchElement();
+        this.resultField = commomElements.result();
+        this.computerNameField = commomElements.computerNameField()
+        this.companyField = commomElements.companyField();
+        this.selectComputerName = commomElements.selectComputer();
     }
 
     accessWebSite = () => {
@@ -25,19 +32,19 @@ exports.CommomActions = class CommomActions{
     }
 
     searchBtn = () => {
-        cy.get(commomElements.searchBtn()).as('searchButton')
+        cy.get(this.searchButton).as('searchButton')
         cy.get('@searchButton').should('be.visible').and('be.empty').click()
     }
 
     searchBox = (computerName) => {
-        cy.get(commomElements.searchElement()).as('searchBox')
+        cy.get(this.searchField).as('searchBox')
         cy.get('@searchBox').should('be.visible').and('be.empty').type(computerName)
     }
 
     checkResults = (action) => {
         const resultMessages = new ResultMessages(action)
         const resultMsg = resultMessages.resultNumber()
-        cy.get(commomElements.result()).invoke('text').then((text) => {
+        cy.get(this.resultField).invoke('text').then((text) => {
             cy.expect(text).to.equal(resultMsg)
         })
     }
@@ -62,14 +69,14 @@ exports.CommomActions = class CommomActions{
     }
 
     checkFields = () => {
-        cy.get(commomElements.computerNameField()).as('computerName').should('be.visible');
-        cy.get(commomElements.introducedField()).as('introduced').should('be.visible')
-        cy.get(commomElements.discontinuedField()).as('discontinued').should('be.visible')
-        cy.get(commomElements.companyField()).as('company').should('be.visible')
+        cy.get(this.computerNameField).as('computerName').should('be.visible');
+        cy.get(this.introducedField).as('introduced').should('be.visible')
+        cy.get(this.discontinuedField).as('discontinued').should('be.visible')
+        cy.get(this.companyField).as('company').should('be.visible')
     }
 
     selectComputer = (computerName) => {
-        cy.get(commomElements.selectComputer()).find('td').contains(computerName).click()
+        cy.get(this.selectComputerName).find('td').contains(computerName).click()
     }
 
     checkMessage = (param, name) => {

@@ -23,6 +23,5 @@ exports.ResultMessages = class ResultMessages{
         }else{
             return `Done !  Computer ${this.name} has been deleted`
         }
-}
-
+    }
 }

@@ -7,7 +7,6 @@ const newComputerElements = new NewComputerElements
 const commomElements = new CommomElements
 const dateFunction = new DateFunction
 
-
 exports.NewComputerActions = class NewComputerActions {
     constructor(){
         this.name = computerData.getComputerName();
@@ -15,7 +14,8 @@ exports.NewComputerActions = class NewComputerActions {
         this.discontinuedDate = dateFunction.getDiscontinuedDate()
         this.computerName = computerData.getComputerName()
         this.companyName = computerData.getCompany();
-        //this.getConfirmationsMsg = computerData.getConfirmationsMsg()
+        this.addBtn = newComputerElements.addBtn();
+        this.createBtn = newComputerElements.createBtn();
     }
 
     clickAddComputer = () => {
@@ -23,7 +23,7 @@ exports.NewComputerActions = class NewComputerActions {
             cy.intercept({
                 url: '/computers/new'
             }).as('new');
-            cy.get(newComputerElements.addBtn()).as('newComputer').should('be.visible');
+            cy.get(this.addBtn).as('newComputer').should('be.visible');
             cy.get('@newComputer').click();
             cy.wait('@new', {
                 timeout: 5000
@@ -42,7 +42,7 @@ exports.NewComputerActions = class NewComputerActions {
                 url: '/computers',
                 method: 'POST'
             }).as('redirectConfirmation')
-            cy.get(newComputerElements.createBtn()).click()
+            cy.get(this.createBtn).click()
             
             cy.wait('@redirectConfirmation', {
                 timeout: 5000

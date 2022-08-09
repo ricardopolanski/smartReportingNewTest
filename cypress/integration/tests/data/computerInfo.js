@@ -35,10 +35,6 @@ exports.ComputerData = class ComputerData {
         return this.companyName;
     }    
 
-    // getConfirmationsMsg = () => {
-    //     return this.computerCreatedMsg;
-    // }    
-
     selectDelComputer = () => {
         return this.selectComputerDelete;
     }    
