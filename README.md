@@ -61,7 +61,7 @@ Was writen four scenarios as following:
     |       |   📜   editComputer.feature
     |       |   📜   filterComputer.feature
     |       |
-    |       📂---pageObjects			# Page Elements
+    |       📂---pageObjects				# Page Elements
     |       |   📜   commomElements.js
     |       |   📜   deleteComputerElements.js
     |       |   📜   editComputerElements.js
