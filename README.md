@@ -35,7 +35,7 @@ Was writen four scenarios as following:
 <pre>
 📂---.github
 |   \📂---workflows
-|         📜 main.yml								# Git Action Config file
+|         📜 main.yml			# Git Action Config file
 |
 📂---cypress
     |   .gitignore
@@ -45,29 +45,29 @@ Was writen four scenarios as following:
     |
     📂---integration
     |   \📂---tests
-    |      \📂---actions							# Test Actions
+    |      \📂---actions				# Test Actions
     |       |   📜  commomActions.js
     |       |   📜  deleteComputerActions.js
     |       |   📜  editComputerActions.js
     |       |   📜  newComputerActions.js
     |       |
-    |       📂---data								# Auxiliar Information
+    |       📂---data					# Auxiliar Information
     |       |   📜  computerInfo.js
     |       |   📜  dateFunctions.js
     |       |
-    |       📂---features							# Gherkin features
+    |       📂---features				# Gherkin features
     |       |   📜   addNewComputer.feature
     |       |   📜   deleteComputer.feature
     |       |   📜   editComputer.feature
     |       |   📜   filterComputer.feature
     |       |
-    |       📂---pageObjects						# Page Elements
+    |       📂---pageObjects			# Page Elements
     |       |   📜   commomElements.js
     |       |   📜   deleteComputerElements.js
     |       |   📜   editComputerElements.js
     |       |   📜   newComputerElements.js
     |       |
-    |       📂---steps								# Steps Definitions
+    |       📂---steps					# Steps Definitions
 	|			📜   commonSteps.js
     |           📜   addNewComputer.js
     |           📜   deleteComputer.js
