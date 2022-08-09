@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+[![Smart Reporting Challenge](https://github.com/ricardopolanski/smartReportingNewTest/actions/workflows/main.yml/badge.svg)](https://github.com/ricardopolanski/smartReportingNewTest/actions/workflows/main.yml)
+
 <H1>How to install and run automated Smart Reporting Challenge test</h1>
 
 <h3>Requirements</h3>
@@ -7,7 +8,7 @@
 
 <h3>Steps to execute</h3>
 
-- Clone this repository to your local computer using the following URL: https://github.com/ricardopolanski/smart_reporting_challenge.git
+- Clone this repository to your local computer using the following URL: https://github.com/ricardopolanski/smartReportingNewTest.git
 - Run the following comands:
 
 	- Install dependencies
@@ -32,24 +33,48 @@ Was writen four scenarios as following:
 <h3>Project Structure</h3>
 
 <pre>
-├───📂integration
-│   └───📂tests
-│       ├───📂features                              # Gherkin features
-│       │       ┗📜addNewComputer.feature  
-│       │       ┣📜deleteComputer.feature
-│       │       ┣📜editComputer.feature
-│       │       ┗📜filterComputer.feature
-│       │
-│       └───📂steps                                 # Steps Definitions
-│           │   ┗📜addNewComputer.js
-│           │   ┣📜deleteComputer.js
-│           │   ┣📜editComputer.js
-│           │   ┗ 📜filterComputer.js
-│           │
-│           └───📂common                            # Common Steps Definitions
-│                   ┗ 📜commonFunctions.js            # Common Functions
-│                   ┗ 📜commonSteps.js                # Common Steps
+📂---.github
+|   \📂---workflows
+|         📜 main.yml								# Git Action Config file
+|
+📂---cypress
+    |   .gitignore
+    |
+    📂---fixtures
+    |       example.json
+    |
+    📂---integration
+    |   \📂---tests
+    |      \📂---actions							# Test Actions
+    |       |   📜  commomActions.js
+    |       |   📜  deleteComputerActions.js
+    |       |   📜  editComputerActions.js
+    |       |   📜  newComputerActions.js
+    |       |
+    |       📂---data								# Auxiliar Information
+    |       |   📜  computerInfo.js
+    |       |   📜  dateFunctions.js
+    |       |
+    |       📂---features							# Gherkin features
+    |       |   📜   addNewComputer.feature
+    |       |   📜   deleteComputer.feature
+    |       |   📜   editComputer.feature
+    |       |   📜   filterComputer.feature
+    |       |
+    |       📂---pageObjects						# Page Elements
+    |       |   📜   commomElements.js
+    |       |   📜   deleteComputerElements.js
+    |       |   📜   editComputerElements.js
+    |       |   📜   newComputerElements.js
+    |       |
+    |       📂---steps								# Steps Definitions
+	|			📜   commonSteps.js
+    |           📜   addNewComputer.js
+    |           📜   deleteComputer.js
+    |           📜   editComputer.js
+    |           📜   filterComputer.js
+    |                            
+    |
+
 </pre>
-=======
-# smart_reporting_challenge
->>>>>>> ec1fdf07bcf54199e12ba574c96b5580e6ae63a4
+
