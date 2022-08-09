@@ -1,10 +1,8 @@
 const { ComputerData } = require('../data/computerInfo')
 const { NewComputerElements } = require('../pageObjects/newComputerElements')
-const { CommomElements } = require('../pageObjects/commomElements')
 const { DateFunction } = require('../data/dateFunctions')
 const computerData = new ComputerData
 const newComputerElements = new NewComputerElements
-const commomElements = new CommomElements
 const dateFunction = new DateFunction
 
 exports.NewComputerActions = class NewComputerActions {

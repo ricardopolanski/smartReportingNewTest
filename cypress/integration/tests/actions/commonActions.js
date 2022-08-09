@@ -1,26 +1,26 @@
 const { ComputerData } = require('../data/computerInfo')
-const { CommomElements } = require('../pageObjects/commomElements')
+const { CommonElements } = require('../pageObjects/commonElements')
 const { DateFunction } = require('../data/dateFunctions')
 const { ResultMessages } = require('../data/messages')
 const computerData = new ComputerData
-const commomElements = new CommomElements
+const commonElements = new CommonElements
 const dateFunction = new DateFunction
 
 
-exports.CommomActions = class CommomActions{
+exports.CommonActions = class CommonActions{
     constructor(){
         this.introduceDate = dateFunction.getIntroduceDate()
         this.discontinuedDate = dateFunction.getDiscontinuedDate()
-        this.introducedField = commomElements.introducedField();
-        this.discontinuedField = commomElements.discontinuedField();
+        this.introducedField = commonElements.introducedField();
+        this.discontinuedField = commonElements.discontinuedField();
         this.companyName = computerData.getCompany();        
-        this.confirmationMessage = commomElements.confirmationMessage()
-        this.searchButton = commomElements.searchBtn();
-        this.searchField = commomElements.searchElement();
-        this.resultField = commomElements.result();
-        this.computerNameField = commomElements.computerNameField()
-        this.companyField = commomElements.companyField();
-        this.selectComputerName = commomElements.selectComputer();
+        this.confirmationMessage = commonElements.confirmationMessage()
+        this.searchButton = commonElements.searchBtn();
+        this.searchField = commonElements.searchElement();
+        this.resultField = commonElements.result();
+        this.computerNameField = commonElements.computerNameField()
+        this.companyField = commonElements.companyField();
+        this.selectComputerName = commonElements.selectComputer();
     }
 
     accessWebSite = () => {

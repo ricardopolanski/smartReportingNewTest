@@ -1,6 +1,3 @@
-// const { DateFunction } = require('../data/dateFunctions')
-// const dateFunction = new DateFunction
-
 exports.ComputerData = class ComputerData {
     constructor(){
         this.filterComputerName = 'Ace';

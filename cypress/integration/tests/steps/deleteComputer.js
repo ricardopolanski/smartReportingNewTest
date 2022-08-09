@@ -1,7 +1,7 @@
 const { DeleteComputerActions } = require('../actions/deleteComputerActions')
-const { CommomActions } = require('../actions/commomActions')
+const { CommonActions } = require('../actions/commonActions')
 const { ComputerData } = require('../data/computerInfo')
-const commomActions = new CommomActions()
+const commonActions = new CommonActions()
 const deleteComputerActions = new DeleteComputerActions()
 const computerData = new ComputerData()
 
@@ -10,16 +10,15 @@ const selectComputer = computerData.selectDelComputer()
 const action = 'delete'
 
 When(/^type into Search Field the Computer name to be deleted$/, () => {
-	commomActions.searchBox(computerName)
+	commonActions.searchBox(computerName)
 });
 
 Then(/^will be listed computers to be deleted$/, () => {
-	commomActions.checkResults(action)
+	commonActions.checkResults(action)
 });
 
-When(/^click on the computer name to be deleted$/, () => {
-    
-	commomActions.selectComputer(selectComputer)
+When(/^click on the computer name to be deleted$/, () => {    
+	commonActions.selectComputer(selectComputer)
 });
 
 When(/^click on the Delete This Computer button$/, () => {
@@ -27,5 +26,5 @@ When(/^click on the Delete This Computer button$/, () => {
 });
 
 Then(/^a delete confirmation message will be displayed$/, () => {
-    commomActions.checkMessage(null, selectComputer)
+    commonActions.checkMessage(null, selectComputer)
 });

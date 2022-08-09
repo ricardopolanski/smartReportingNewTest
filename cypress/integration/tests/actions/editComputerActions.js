@@ -1,14 +1,14 @@
 const { ComputerData } = require('../data/computerInfo')
-const { CommomElements } = require('../pageObjects/commomElements')
+const { CommonElements } = require('../pageObjects/commonElements')
 const { EditComputerElements } = require('../pageObjects/editComputerElements')
 const computerData = new ComputerData
-const commomElements = new CommomElements
+const commonElements = new CommonElements
 const editElements = new EditComputerElements
 
 exports.EditComputerActions = class EditComputerActions {
     constructor(){
         this.computerName = computerData.editComputer();
-        this.computerNameField = commomElements.computerNameField();
+        this.computerNameField = commonElements.computerNameField();
         this.btnSave = editElements.save();
     }
 

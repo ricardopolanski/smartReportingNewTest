@@ -1,7 +1,5 @@
 const { DeleteComputerElements } = require('../pageObjects/deleteComputerElements')
-const { CommomElements } = require('../pageObjects/commomElements')
-const deleteElements = new DeleteComputerElements
-const commomElements = new CommomElements
+const deleteElements = new DeleteComputerElements()
 
 exports.DeleteComputerActions = class DeleteComputerActions {
     constructor(){

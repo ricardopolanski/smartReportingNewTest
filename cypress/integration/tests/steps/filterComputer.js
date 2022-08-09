@@ -1,15 +1,15 @@
-const { CommomActions } = require('../actions/commomActions')
+const { CommonActions } = require('../actions/commonActions')
 const { ComputerData } = require('../data/computerInfo')
-const commomActions = new CommomActions
+const commonActions = new CommonActions
 const computerData = new ComputerData
 
 const computerName = computerData.getNameFilter()
 const action = 'filter'
 
 And(/^type into Search Field the Computer name$/, () => {
-    commomActions.searchBox(computerName);
+    commonActions.searchBox(computerName);
 });
 
 Then(/^a list of computers will be displayed$/, () => {
-    commomActions.checkResults(action);
+    commonActions.checkResults(action);
 });
