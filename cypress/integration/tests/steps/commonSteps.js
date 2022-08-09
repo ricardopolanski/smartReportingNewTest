@@ -1,4 +1,4 @@
-const { CommonActions } = require('../../actions/commonActions')
+const { CommonActions } = require('../actions/commonActions')
 const commonActions = new CommonActions
 
 Given(/^the website is accessed$/, () => {
