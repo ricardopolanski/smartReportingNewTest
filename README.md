@@ -68,7 +68,7 @@ Was writen four scenarios as following:
     |       |   📜   newComputerElements.js
     |       |
     |       📂---steps					# Steps Definitions
-   |           📜   commonSteps.js
+    |           📜   commonSteps.js
     |           📜   addNewComputer.js
     |           📜   deleteComputer.js
     |           📜   editComputer.js
